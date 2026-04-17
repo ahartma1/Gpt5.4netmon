@@ -1,0 +1,13 @@
+
+services:
+  netmon:
+    build: .
+    image: netmon:latest
+    container_name: netmon
+    restart: unless-stopped
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    volumes:
+      - ./data:/data
