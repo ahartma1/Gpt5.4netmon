@@ -1,0 +1,10 @@
+# docker-compose.yml
+services:
+  netmon:
+    build: .
+    container_name: netmon
+    network_mode: "host"
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
