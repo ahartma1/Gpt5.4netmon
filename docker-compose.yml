@@ -1,0 +1,10 @@
+services:
+  netmon:
+    build:
+      context: .
+    container_name: netmon
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    restart: unless-stopped
