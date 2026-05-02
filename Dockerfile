@@ -9,4 +9,4 @@ RUN apk add --no-cache \
     curl \
     bind-tools
 
-CMD ["sleep", "infinity"]
+CMD ["tail", "-f", "/dev/null"]
