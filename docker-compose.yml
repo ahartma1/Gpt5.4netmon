@@ -1,6 +1,6 @@
 services:
   netmon:
-    build: .
+    image: netmon:latest
     container_name: netmon
     restart: unless-stopped
     # Use host network for full network monitoring capability
