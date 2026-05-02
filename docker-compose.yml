@@ -1,9 +1,13 @@
 services:
   netmon:
-    image: netmon:latest
+    build: .
+    container_name: netmon
     restart: unless-stopped
-    # Host networking is required for network monitoring visibility.
+    # Use host network for full network monitoring capability
     network_mode: host
-    # Grant only the minimum capability required for network operations.
+    # Add NET_ADMIN capability for advanced network operations
     cap_add:
       - NET_ADMIN
+      - NET_RAW
+    volumes:
+      - .:/app

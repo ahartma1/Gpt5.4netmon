@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:latest
 
 # Install basic networking tools useful for monitoring
 RUN apk add --no-cache \
@@ -14,7 +14,5 @@ RUN apk add --no-cache \
 # Create a working directory
 WORKDIR /app
 
-# This image is intended as a debug/toolbox container for manual network
-# inspection, not as a deployed service that starts a monitor automatically.
-# Start an interactive shell by default instead of idling with `tail -f /dev/null`.
-CMD ["sh"]
+# Set default command
+CMD ["tail", "-f", "/dev/null"]
