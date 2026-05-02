@@ -14,5 +14,7 @@ RUN apk add --no-cache \
 # Create a working directory
 WORKDIR /app
 
-# Set default command
-CMD ["tail", "-f", "/dev/null"]
+# This image is intended as a debug/toolbox container for manual network
+# inspection, not as a deployed service that starts a monitor automatically.
+# Start an interactive shell by default instead of idling with `tail -f /dev/null`.
+CMD ["sh"]
