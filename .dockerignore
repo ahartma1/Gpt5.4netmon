@@ -1,0 +1,7 @@
+.git
+.github
+main.tf
+docker-compose.yml
+README.md
+LICENSE
+.gitignore
