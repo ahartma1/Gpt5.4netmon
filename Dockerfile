@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.20
 
 # Install basic networking tools useful for monitoring
 RUN apk add --no-cache \
