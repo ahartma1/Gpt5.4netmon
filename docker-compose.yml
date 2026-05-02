@@ -7,5 +7,3 @@ services:
     # Grant only the minimum capability required for network operations.
     cap_add:
       - NET_ADMIN
-    volumes:
-      - .:/app
