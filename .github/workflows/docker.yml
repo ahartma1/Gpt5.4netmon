@@ -1,0 +1,28 @@
+name: 'Docker Multi-Arch Build'
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  docker:
+    name: 'Build'
+    runs-on: ubuntu-latest
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+
+    - name: Build
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: false
+        platforms: linux/amd64,linux/arm64
