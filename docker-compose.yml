@@ -1,0 +1,16 @@
+services:
+  netmon:
+    build: .
+    container_name: netmon
+    restart: unless-stopped
+    # Use host networking as specified in project requirements
+    network_mode: "host"
+    cap_add:
+      # NET_ADMIN and NET_RAW capabilities to perform network monitoring operations
+      - NET_ADMIN
+      - NET_RAW
+    # Optional: mount /etc/localtime or other required directories
+    # volumes:
+    #   - /etc/localtime:/etc/localtime:ro
+    # Just a placeholder command to keep container running if needed, or let it fall back to Dockerfile CMD
+    command: tail -f /dev/null
