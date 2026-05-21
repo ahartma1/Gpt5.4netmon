@@ -1,0 +1,10 @@
+services:
+  netmon:
+    build: .
+    network_mode: host
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
