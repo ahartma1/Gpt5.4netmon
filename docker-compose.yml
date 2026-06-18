@@ -1,0 +1,12 @@
+services:
+  netmon:
+    build: .
+    image: gpt5.4netmon:latest
+    container_name: netmon
+    restart: unless-stopped
+    network_mode: host
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
