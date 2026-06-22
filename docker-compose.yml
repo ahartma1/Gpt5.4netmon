@@ -1,0 +1,13 @@
+services:
+  netmon:
+    build: .
+    container_name: netmon
+    restart: unless-stopped
+    # Use host network for full network monitoring capability
+    network_mode: host
+    # Add NET_ADMIN capability for advanced network operations
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    volumes:
+      - .:/app
