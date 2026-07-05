@@ -1,0 +1,10 @@
+services:
+  gpt5-4netmon:
+    build: .
+    network_mode: "host"
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    restart: unless-stopped
